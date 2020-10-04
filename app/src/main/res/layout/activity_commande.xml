@@ -128,7 +128,7 @@
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
-            android:inputType="text"
+            android:inputType="number"
             android:background="#0000"
             android:padding="16dp"
             android:layout_marginRight="35dp"/>
@@ -164,7 +164,7 @@
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
-            android:inputType="text"
+            android:inputType="phone"
             android:background="#0000"
             android:padding="16dp"
             android:layout_marginRight="35dp"/>
@@ -214,7 +214,7 @@
                 android:background="#ADCCE2" />
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/cpassorwd"
+                android:id="@+id/cpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confirmer Mot de passe"
