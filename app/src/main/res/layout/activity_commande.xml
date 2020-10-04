@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,15 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="150dp"
             android:layout_alignParentBottom="true">
 
 
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/fname"
+                android:id="@+id/prenom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fullname"
+                android:hint="Prénom"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -46,10 +47,10 @@
                 android:background="#ADCCE2" />
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/fname"
+                android:id="@+id/nom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fullname"
+                android:hint="Nom"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -65,10 +66,10 @@
                 android:background="#ADCCE2" />
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/fname"
+                android:id="@+id/nomEntreprise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fullname"
+                android:hint="Nom d'entreprise (facultatif)"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -84,10 +85,10 @@
                 android:background="#ADCCE2" />
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/fname"
+                android:id="@+id/pays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fullname"
+                android:hint="Pays"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -102,10 +103,10 @@
                 android:layout_height="1dp"
                 android:background="#ADCCE2" /> <EditText
             android:textSize="16dp"
-            android:id="@+id/fname"
+            android:id="@+id/adresse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fullname"
+            android:hint="Adresse"
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
@@ -120,10 +121,10 @@
                 android:layout_height="1dp"
                 android:background="#ADCCE2" /> <EditText
             android:textSize="16dp"
-            android:id="@+id/fname"
+            android:id="@+id/codePostal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fullname"
+            android:hint="Code Postal"
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
@@ -138,10 +139,10 @@
                 android:layout_height="1dp"
                 android:background="#ADCCE2" /> <EditText
             android:textSize="16dp"
-            android:id="@+id/fname"
+            android:id="@+id/ville"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fullname"
+            android:hint="Ville"
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
@@ -156,10 +157,10 @@
                 android:layout_height="1dp"
                 android:background="#ADCCE2" /> <EditText
             android:textSize="16dp"
-            android:id="@+id/fname"
+            android:id="@+id/mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fullname"
+            android:hint="Mobile"
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
@@ -174,10 +175,10 @@
                 android:layout_height="1dp"
                 android:background="#ADCCE2" /> <EditText
             android:textSize="16dp"
-            android:id="@+id/fname"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fullname"
+            android:hint="Email"
             android:textColorHint="#ADCCE2"
             android:textColor="#ADCCE2"
             android:layout_marginLeft="22dp"
@@ -194,10 +195,10 @@
 
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/fname"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fullname"
+                android:hint="Mot de passe"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -213,73 +214,10 @@
                 android:background="#ADCCE2" />
             <EditText
                 android:textSize="16dp"
-                android:id="@+id/fname"
+                android:id="@+id/cpassorwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fullname"
-                android:textColorHint="#ADCCE2"
-                android:textColor="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="text"
-                android:background="#0000"
-                android:padding="16dp"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:background="#ADCCE2" />
-            <EditText
-                android:textSize="16dp"
-                android:id="@+id/fname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Fullname"
-                android:textColorHint="#ADCCE2"
-                android:textColor="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="text"
-                android:background="#0000"
-                android:padding="16dp"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:background="#ADCCE2" />
-            <EditText
-                android:textSize="16dp"
-                android:id="@+id/fname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Fullname"
-                android:textColorHint="#ADCCE2"
-                android:textColor="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="text"
-                android:background="#0000"
-                android:padding="16dp"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:background="#ADCCE2" />
-            
-
-
-
-
-
-            <EditText
-                android:textSize="16dp"
-                android:id="@+id/fname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Fullname"
+                android:hint="Confirmer Mot de passe"
                 android:textColorHint="#ADCCE2"
                 android:textColor="#ADCCE2"
                 android:layout_marginLeft="22dp"
@@ -294,71 +232,12 @@
                 android:layout_height="1dp"
                 android:background="#ADCCE2" />
 
-            <EditText
-                android:textSize="16dp"
-                android:id="@+id/mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:textColorHint="#ADCCE2"
-                android:textColor="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="text"
-                android:background="#0000"
-                android:padding="16dp"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:background="#ADCCE2" />
-            <EditText
-                android:textSize="16dp"
-                android:id="@+id/usrusr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Username"
-                android:textColorHint="#ADCCE2"
-                android:textColor="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="text"
-                android:background="#0000"
-                android:padding="16dp"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:background="#ADCCE2" />
-            <EditText
-                android:textSize="16dp"
-                android:id="@+id/pswrd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:textColorHint="#ADCCE2"
-                android:layout_marginLeft="22dp"
-                android:inputType="textPassword"
-                android:maxLength="12"
-                android:textColor="#ADCCE2"
-                android:background="#0000"
-                android:padding="16dp"
-                android:layout_marginRight="35dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_height="1dp"
-                android:layout_marginBottom="10dp"
-                android:background="#ADCCE2"/>
             <TextView
-                android:id="@+id/sin"
+                android:id="@+id/suiv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/angle"
-                android:text="Create"
+                android:text="Suivant"
                 android:textSize="16dp"
                 android:textColor="#fff"
                 android:gravity="center"
@@ -371,4 +250,4 @@
                 />
         </LinearLayout>
     </RelativeLayout>
-</FrameLayout>
+</ScrollView>

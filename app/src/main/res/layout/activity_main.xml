@@ -25,9 +25,17 @@
         <TextView
             android:background="@drawable/logo"
             android:id="@+id/imac"
-            android:layout_width="145dp"
-            android:layout_height="80dp"
+            android:layout_width="150dp"
+            android:layout_height="140dp"
             android:layout_centerInParent="true"
+            />
+        <TextView
+            android:background="@drawable/a"
+            android:id="@+id/d"
+            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_centerInParent="false"
             />
         <TextView
             android:id="@+id/account"
