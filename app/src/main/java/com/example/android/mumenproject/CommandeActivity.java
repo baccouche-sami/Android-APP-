@@ -33,6 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.internal.http2.ErrorCode;
 
 public class CommandeActivity extends AppCompatActivity {
     //Spinner paysSpinner;
@@ -40,14 +41,17 @@ public class CommandeActivity extends AppCompatActivity {
     EditText prenom, nom, nomEntreprise, pays, adresse, codePostal, ville, mobile, password, cpassword, email;
     String p, cp;
     JSONObject jsonObject;
+    OkHttpClient client;
+    private static final String TAG = "Response";
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commande);
-        AndroidNetworking.initialize(this);
+       // AndroidNetworking.initialize(this);
         prenom = findViewById(R.id.prenom);
         nom = findViewById(R.id.nom);
         nomEntreprise = findViewById(R.id.nomEntreprise);
@@ -64,33 +68,49 @@ public class CommandeActivity extends AppCompatActivity {
 
 
         btn = findViewById(R.id.suiv);
+        client = new OkHttpClient();
+        jsonObject = new JSONObject();
+        try {
+            jsonObject.put("prenom", prenom.getText().toString());
+            jsonObject.put("nom", nom.getText().toString());
+            jsonObject.put("nomEntreprise", nomEntreprise.getText().toString());
+            jsonObject.put("pays", pays.getText().toString());
+            jsonObject.put("adresse", adresse.getText().toString());
+            jsonObject.put("codePostale", codePostal.getText());
+            jsonObject.put("ville", ville.getText().toString());
+            jsonObject.put("mobile", mobile.getText());
+            jsonObject.put("email", email.getText().toString());
+            jsonObject.put("password", password.getText().toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (p.equals(cp)) {
-                    jsonObject = new JSONObject();
-                    try {
-                        jsonObject.put("prenom", prenom.getText().toString());
-                        jsonObject.put("nom", nom.getText().toString());
-                        jsonObject.put("nomEntreprise", nomEntreprise.getText().toString());
-                        jsonObject.put("pays", pays.getText().toString());
-                        jsonObject.put("adresse", adresse.getText().toString());
-                        jsonObject.put("codePostale", Integer.parseInt(codePostal.getText().toString()));
-                        jsonObject.put("ville", ville.getText().toString());
-                        jsonObject.put("mobile", Integer.parseInt(mobile.getText().toString()));
-                        jsonObject.put("email", email.getText().toString());
-                        jsonObject.put("password", password.getText().toString());
 
-                    } catch (JSONException e) {
+                    try {
+                        postRequest();
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
+                   /* try {
+                        post("http://localhost:8080/clients",jsonObject.toString());
 
-                    OkHttpClient client = new OkHttpClient();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
+
+/*
+                    client = new OkHttpClient();
                     new OkHttpClient.Builder()
                             .addNetworkInterceptor(new StethoInterceptor())
                             .build();
-                    RequestBody body = RequestBody.create(JSON,jsonObject.toString());
+                    RequestBody body = RequestBody.create(jsonObject.toString(),JSON);
+
                     Request request = new Request.Builder()
                             .url("http://localhost:8080/clients")
                             .post(body)
@@ -108,12 +128,11 @@ public class CommandeActivity extends AppCompatActivity {
                                                         public void onFailure(@NotNull Call call, @NotNull IOException e) {
                                                             Log.e("test", "Not Working ");
                                                         }
-
                                                     });
 
 
 
-
+*/
 
                         /*AndroidNetworking.post("http://localhost:8080/clients")
                                 .addJSONObjectBody(jsonObject) // posting json
@@ -131,8 +150,7 @@ public class CommandeActivity extends AppCompatActivity {
                                         Log.e("test","Not Working ");
                                     }
                                 });*/
-
-                            Intent i = new Intent(view.getContext(), Commande2Activity.class);
+                        Intent i = new Intent(view.getContext(), Commande2Activity.class);
                     i.putExtra("prenom", prenom.getText());
                     i.putExtra("nom", nom.getText());
                     i.putExtra("nomEntreprise", nomEntreprise.getText());
@@ -164,5 +182,39 @@ public class CommandeActivity extends AppCompatActivity {
 
         // Apply the adapter to the spinner
         paysSpinner.setAdapter(staticAdapter);*/
+    }
+    public void postRequest() throws IOException{
+
+        MediaType MEDIA_TYPE = MediaType.parse("application/json");
+        String url = "http://localhost:8080/clients";
+
+        OkHttpClient client = new OkHttpClient();
+
+
+
+        RequestBody body = RequestBody.create(MEDIA_TYPE, jsonObject.toString());
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                String mMessage = e.getMessage().toString();
+                Log.w("failure Response", mMessage);
+                //call.cancel();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                String mMessage = response.body().string();
+                Log.e(TAG, mMessage);
+            }
+        });
     }
 }
